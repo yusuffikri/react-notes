@@ -5,7 +5,7 @@ import {v4 as uuid} from 'uuid';
 
 import useCreateDate from "../components/useCreateDate";
 
-const CreateNote = (setNotes) => {
+const CreateNote = ({setNotes}) => {
   const [title,setTitle] = useState('');
   const [details,setDetails] = useState('');
   const date = useCreateDate();
@@ -16,7 +16,7 @@ const CreateNote = (setNotes) => {
 
     if (title && details ){
     const note = {id: uuid(), title, details, date}
-    // add this note the Notes array8
+    // add this note the Notes array
     setNotes(prevNotes => [note, ...prevNotes])
     
     // redirect to homepage
@@ -32,10 +32,10 @@ const CreateNote = (setNotes) => {
   </header>
   <form  className="create-note__form" onSubmit={handleSubmit}>
     <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle (e.target.value)} autoFocus />
-    <textarea rows="28" placeholder="Note details..." value={details} onChange={(e) => setDetails (e.target.value)}  ></textarea>
+    <textarea rows="28" placeholder="Note details..." value={details} onChange={(e) => setDetails (e.target.value)} ></textarea>
   </form>
 </section>
   )
 }
 
-export default CreateNote
+export default CreateNote;
