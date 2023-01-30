@@ -1,5 +1,5 @@
-import { Link, useNavigate } from "react-router-dom"
-import {IoIosArrowBack} from "react-icons/io"
+import { Link, useNavigate } from "react-router-dom";
+import {IoIosArrowBack} from "react-icons/io";
 import { useState } from "react";
 import {v4 as uuid} from 'uuid';
 
