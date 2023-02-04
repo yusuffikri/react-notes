@@ -28,8 +28,15 @@ const EditNote = ({notes, setNotes}) => {
 
       setNotes = newNotes;
     }
-
+    // redirect to homepage
     navigate('/')
+  }
+
+  const handleDelete = () => {
+    const newNotes = notes.filter(item => item.id !== id);
+
+    setNotes(newNotes);
+    navigate('/');
   }
 
   return (
@@ -37,7 +44,7 @@ const EditNote = ({notes, setNotes}) => {
   <header className="create-note__header">
     <Link to="/" className="btn"><IoIosArrowBack/></Link>
     <button className="btn lg primary" onClick={handleForm}>Save</button>
-    <button className="btn danger"><RiDeleteBin6Line/></button>
+    <button className="btn danger" onClick={handleDelete}><RiDeleteBin6Line/></button>
   </header>
   <form  className="create-note__form" onSubmit={handleForm}>
     <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} autoFocus />
